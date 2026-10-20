@@ -6,7 +6,6 @@ const SESSION_DURATION = 1000 * 60 * 60 * 24; // 24 hours in milliseconds
 // Cambiar a 60000 (1 minuto) para probar la expiración
 
 // funciones internas
-
 function getUser(): User | null {
   const userStorage = localStorage.getItem(STORAGE_KEYS.user);
   
@@ -18,18 +17,6 @@ function getUser(): User | null {
     } catch {
         return null;
     }
-}
-
-function saveUser(user: User): void {
-    localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(user));
-}
-
-function saveSession(session: Session): void {
-    localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
-}
-
-function saveBalance(userId: string, amount: number): void {
-    localStorage.setItem(STORAGE_KEYS.balance(userId), String(amount));
 }
 
 function createSession(userId: string, email: string): Session {
@@ -60,11 +47,11 @@ export async function register(fullName: string, email: string, password: string
         createdAt: new Date().toISOString()
     };
 
-    saveUser(user);
-    saveBalance(user.id, 0);
+    localStorage.setItem(STORAGE_KEYS.user, JSON.stringify(user));
+    localStorage.setItem(STORAGE_KEYS.balance(user.id), String(0));
 
     const session = createSession(user.id, user.email);
-    saveSession(session);
+    localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
 
     return { user, session };
 }
@@ -84,7 +71,7 @@ export async function login(email: string, password: string): Promise<{ user: Us
     }
 
     const session = createSession(user.id, user.email);
-    saveSession(session);
+    localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(session));
 
     return { user, session };
 }
@@ -122,10 +109,4 @@ export function getCurrentUser(): User | null {
     if (!user || user.id !== session.userId) return null;
 
     return user;
-}
-
-export function getBalance(userId: string): number {
-    const balanceStorage = localStorage.getItem(STORAGE_KEYS.balance(userId));
-
-    return balanceStorage ? Number(balanceStorage) : 0;
 }
