@@ -2,7 +2,7 @@ import { STORAGE_KEYS } from "../constants/storageKeys";
 import { hashPassword } from "../utils/hash";
 import type { User, Session } from "../types/auth";
 
-const SESSION_DURATION = 1000 * 60 * 60 * 24; // 24 hours in milliseconds
+const SESSION_DURATION = 120000; // 2 minutos
 // Cambiar a 60000 (1 minuto) para probar la expiración
 
 // funciones internas
