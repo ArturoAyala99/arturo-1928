@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { hashPassword } from "./hash";
 
 describe("hashPassword", () => {
-    it("devuelve string de 64 caracteres hex", async () => {
+    it("devuelve string de 64 caracteres", async () => {
         const result = await hashPassword("password123");
 
         expect(result).toBeTypeOf("string");
