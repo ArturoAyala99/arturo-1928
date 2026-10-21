@@ -9,8 +9,8 @@
 ### Instalación y ejecución
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/<usuario>/<repo>.git
-cd <repo>
+git clone https://github.com/ArturoAyala99/arturo-1928.git
+cd arturo-1928
 ```
 2. En una terminal nos ubicamos en la carpeta Backend, instalamos dependencias y ejecutamos la aplicación:
 ```bash
