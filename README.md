@@ -10,19 +10,30 @@
 1. Clonar el repositorio:
 ```bash
 git clone https://github.com/ArturoAyala99/arturo-1928.git
+```
+```bash
 cd arturo-1928
 ```
+
 2. En una terminal nos ubicamos en la carpeta Backend, instalamos dependencias y ejecutamos la aplicación:
 ```bash
 cd backend
+```
+```bash
 npm install
+```
+```bash
 npm run dev
 ```
+
 3. En otra terminal diferente nos ubicamos en la carpeta Frontend e instalamos dependencias:
 ```bash
 cd frontend
+```
+```bash
 npm install
 ```
+
 4. El frontend requiere un archivo .env en la carpeta frontend/ con la URL del backend. Contenido del .env: 
     - VITE_API_URL=http://localhost:3000
 5. Ejecutamos la aplicación del frontend:
@@ -39,10 +50,15 @@ Nota: Ambos proyectos (backend y frontend) deben estar ejecutándose al mismo ti
 1. En una terminal nos ubicamos en la carpeta Backend y ejecutamos pruebas:
 ```bash
 cd backend
+```
+```bash
 npm test
 ```
+
 2. En otra terminal nos ubicamos en la carpeta Frontend y ejecutamos pruebas:
 ```bash
 cd frontend
+```
+```bash
 npm test
 ```
